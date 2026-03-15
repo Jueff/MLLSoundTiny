@@ -31,13 +31,6 @@ This class represents a sound module connected via serial, handles initializatio
 
 This library is released under the LGPL-2.1-or-later license. See the SPDX license headers in the source files for details.
 
-## Contribution
-
-Contributions are welcome! Please read CONTRIBUTING.md for guidelines.
-
-## Contact
-
-For questions or support: [MobaLedLib@gmx.at](mailto:MobaLedLib@gmx.at)
 
 ---
 
