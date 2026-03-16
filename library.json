@@ -1,0 +1,29 @@
+{
+  "name": "MLLSoundTiny",
+  "version": "0.1.0",
+  "description": "The library bundles ATTiny compatible sound related classes for MobaLedLib",
+  "keywords": "rp2040,jq6500,mp3tf-16p",
+  "authors": [
+    {
+      "name": "Jueff",
+      "email": "MobaLedLib@gmx.at",
+      "maintainer": true
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jueff/MLLSoundTiny"
+  },
+  "homepage": "https://github.com/Jueff/MLLSoundTiny#readme",
+  "license": "LGPL-2.1-or-later",
+  "frameworks": "*",
+  "platforms": ["raspberrypi"],
+  "dependencies": [
+    {
+      "name": "PicoFlashStorage",
+      "version": "*"
+    }
+  ],
+  "headers": ["LedToSound.h","MLLSoundTiny.h","SoundModule.h"],
+  "exclude": ["compile.cmd",".git",".vs","src\\.vs"]
+}
