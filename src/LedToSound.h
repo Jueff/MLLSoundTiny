@@ -2,14 +2,16 @@
 #include <queue>  
 #include "SoundModule.h"
 
-struct SoundCommand {
+struct SoundCommand 
+{
   uint8_t module;   // Zielmodul (Index)
   uint8_t cmd;
   uint8_t param1;
   uint8_t param2;
 };
 
-class LedToSound {
+class LedToSound 
+{
 public:
   static constexpr uint8_t NUM_MODULES = 3;
   LedToSound(SoundModule* modules[NUM_MODULES]);

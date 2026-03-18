@@ -15,6 +15,7 @@
 
 #include <Arduino.h>
 #include "LedToSound.h"
+#include "MLLSoundTiny.h"
 #include <mutex>
 
 LedToSound::LedToSound(SoundModule* modules[NUM_MODULES])
@@ -49,7 +50,7 @@ void LedToSound::handleCommand(uint8_t cmd, uint8_t param1, uint8_t param2)
   case PLAYER_SET_ACTIVE_MODULE:
     if ((param1 > 0) && (param1 <= NUM_MODULES)) {
       activeModule = param1 - 1;
-      Serial.printf("Set active module to %d\n", activeModule);
+      MLLST_LOG(1, "Active module set to %d\n", activeModule);
     }
     break;
   case PLAYER_SET_MODULE_TYPE:

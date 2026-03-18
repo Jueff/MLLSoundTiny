@@ -5,6 +5,7 @@
 */
 
 #include "SoundModule.h"
+#include "MllSoundTiny.h"
 
 /**
  * @brief SoundModule class for managing individual sound modules.
@@ -34,17 +35,17 @@ SoundModule::SoundModule(uint8_t serialPin)
     moduleType = fbs.getData(0);
     if (moduleType == MODULE_MP3_TF_16P || moduleType == MODULE_JQ6500)
     {
-      Serial.printf("%d: module type is %d\n", serialPin, moduleType);
+      MLLST_LOG(1, "%d: module type is %d\n", serialPin, moduleType);
     }
     else
     {
-      Serial.printf("%d: invalid module type %d, using default\n", serialPin, moduleType);
+      MLLST_LOG(1, "%d: invalid module type %d, using default\n", serialPin, moduleType);
       moduleType = MODULE_MP3_TF_16P;
     }
   }
   else
   {
-    Serial.printf("%d: can't read module type, using default\n", serialPin);
+    MLLST_LOG(1, "%d: can't read module type, using default\n", serialPin);
     moduleType = MODULE_MP3_TF_16P;
   }
   mp3.setModuleType(moduleType);
@@ -64,18 +65,18 @@ void SoundModule::process(uint8_t cmd, uint8_t param1, uint8_t param2)
 void SoundModule::setModuleType(uint8_t type) 
 {
   mp3.setModuleType(type);
-  Serial.printf("%d: saving module type %d\n", serialPin, type);
+  MLLST_LOG(1, "%d: saving module type %d\n", serialPin, type);
 
   FlashWriteBlock fwb(FLASHBLOCK_TYPE_MODULE_TYPE, serialPin);
   fwb.setData(type, 0);
   if (!pStorage->write(&fwb))
   {
-    Serial.printf("%d: error saving module type %d\n", serialPin, type);
+    MLLST_LOG(1, "%d: error saving module type %d\n", serialPin, type);
     // todo error handling
   }
   else
   {
-    Serial.printf("%d: module type %d saved\n", serialPin, type);
+    MLLST_LOG(1, "%d: module type %d saved\n", serialPin, type);
   }
 }
 
