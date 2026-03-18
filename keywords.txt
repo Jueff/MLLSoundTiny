@@ -1,5 +1,5 @@
 ##########################################
-# Syntax Coloring Map For SoftwareSerialTX
+# Syntax Coloring Map For MLLSoundTiny
 ##########################################
 #FUNCTIONS COLOR     #D35400 - ORANGE  KEYWORD1
 #FUNCTIONS COLOR     #D35400 - ORANGE  KEYWORD2
@@ -13,15 +13,30 @@
 #######################################
 # Datatypes (KEYWORD3)
 #######################################
-SoftwareSerialTX	KEYWORD3
-
+LedToSound	KEYWORD3
+MultiPlayer	KEYWORD3
+SoundModule	KEYWORD3
+SoundCommand	KEYWORD3
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-setTX	KEYWORD2
+processLedData	KEYWORD2
+handleCommand	KEYWORD2
+enqueueCommand	KEYWORD2
+processQueue	KEYWORD2
+calculateCheckSum	KEYWORD2
+disableACK	KEYWORD2
 begin	KEYWORD2
-write	KEYWORD2
+sendStack	KEYWORD2
+sendCmd	KEYWORD2
+setModuleType	KEYWORD2
+sendJQ	KEYWORD2
+mapJQ6500Command	KEYWORD2
+init	KEYWORD2
+process	KEYWORD2
+sendToMp3	KEYWORD2
+uint16ToArray	KEYWORD2
 
 #######################################
 # Macros (KEYWORD2)
@@ -34,3 +49,14 @@ write	KEYWORD2
 #######################################
 # Constants (LITERAL1)
 #######################################
+NUM_MODULES	LITERAL1
+PLAYER_SET_ACTIVE_MODULE	LITERAL1
+PLAYER_SET_MODULE_TYPE	LITERAL1
+PLAYER_PLAY_TRACK_ON	LITERAL1
+PLAYER_PLAY_MP3_ON	LITERAL1
+PLAYER_PLAY_TRACK_REPEAT_ON	LITERAL1
+PLAYER_PLAY_TRACK	LITERAL1
+PLAYER_SET_REPEAT_CURRENT	LITERAL1
+MODULE_MP3_TF_16P	LITERAL1
+MODULE_JQ6500	LITERAL1
+FLASHBLOCK_TYPE_MODULE_TYPE	LITERAL1
