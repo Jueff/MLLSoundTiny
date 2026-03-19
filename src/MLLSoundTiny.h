@@ -8,6 +8,7 @@
 #include <Arduino.h>
 
 #define MLLST_LOG(level,...) if (MLLSoundTiny::LogLevel>=level) Serial.printf(__VA_ARGS__);
+#define MLLST_IS_LOG(level) (MLLSoundTiny::LogLevel>=level);
 
 class MLLSoundTiny
 {

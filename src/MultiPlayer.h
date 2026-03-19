@@ -89,6 +89,7 @@
 class MultiPlayer {
   Stream* _serial;
   uint8_t _currentType = MODULE_MP3_TF_16P;
+  uint8_t _identity = 0;
   unsigned long _timeOutTimer;
   bool _isSending = false;
   uint8_t _sending[PLAYER_SEND_LENGTH] = {
@@ -115,16 +116,17 @@ class MultiPlayer {
   void uint16ToArray(uint16_t value,uint8_t *array);
   void disableACK();
 
-  void sendStack();
-  void sendStack(uint8_t command);
-  void sendStack(uint8_t command, uint16_t argument);
-  void sendStack(uint8_t command, uint8_t argumentHigh, uint8_t argumentLow);
+  void sendMP3TF16P();
+  void sendMP3TF16P(uint8_t command);
+  void sendMP3TF16P(uint8_t command, uint16_t argument);
+  void sendMP3TF16P(uint8_t command, uint8_t argumentHigh, uint8_t argumentLow);
 
   public:
   
   bool begin(Stream& stream);
 
   void setModuleType(uint8_t moduleType);
+  void setIdentity(uint8_t identity);
 
   void sendCmd(uint8_t command);
   void sendCmd(uint8_t command, uint8_t argument);
@@ -136,5 +138,9 @@ class MultiPlayer {
   void sendJQ(uint8_t command, uint16_t argument);
 
 protected:
-  uint8_t mapJQ6500Command(uint8_t command);
+  uint8_t     mapJQ6500Command(uint8_t command);
+  size_t      write(const uint8_t* buffer, size_t size);
+  void        debugOutput(const uint8_t* data, uint8_t dataLength);
+  const char* toCommandText(uint8_t command);
+  void        unknownModuleType(uint8_t moduleType, uint8_t command);
 };

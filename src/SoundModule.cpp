@@ -48,6 +48,7 @@ SoundModule::SoundModule(uint8_t serialPin)
     MLLST_LOG(1, "%d: can't read module type, using default\n", serialPin);
     moduleType = MODULE_MP3_TF_16P;
   }
+  mp3.setIdentity(serialPin);
   mp3.setModuleType(moduleType);
   mp3.begin(*serial);
 }
