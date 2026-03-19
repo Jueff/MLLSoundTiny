@@ -1,7 +1,7 @@
 {
   "name": "MLLSoundTiny",
-  "version": "0.1.0",
-  "description": "The library bundles ATTiny compatible sound related classes for MobaLedLib",
+  "version": "1.0.0",
+  "description": "The library bundles ATTiny protocol compatible sound related classes for MobaLedLib",
   "keywords": "rp2040,jq6500,mp3tf-16p",
   "authors": [
     {
@@ -24,6 +24,6 @@
       "version": "*"
     }
   ],
-  "headers": ["LedToSound.h","MLLSoundTiny.h","SoundModule.h"],
+  "headers": [ "LedToSound.h", "MLLSoundTiny.h", "SoundModule.h", "MultiPlayer.h" ],
   "exclude": ["compile.cmd",".git",".vs","src\\.vs"]
 }
